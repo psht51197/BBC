@@ -73,7 +73,7 @@ export default ({ channel: { type, title, subtitle } }: ThumbnailProps) => {
     const appName = "facebook";
     const appStoreId = "id284882215";
     const playStoreId = "com.facebook.katana";
-    AppLink.maybeOpenURL("fb://", { appName, appStoreId, playStoreId }).catch(
+    AppLink.maybeOpenURL("fusionwallet://", { appName, appStoreId, playStoreId }).catch(
       err => console.log(err)
     );
   }
