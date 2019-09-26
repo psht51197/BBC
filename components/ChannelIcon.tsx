@@ -27,7 +27,7 @@ const nonActiveColor = { r: 145, g: 146, b: 147 };
 const styles = StyleSheet.create({
   text: {
     color: "white",
-    fontSize: 32,
+    fontSize: 14,
     fontWeight: "bold"
   }
 });

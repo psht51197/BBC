@@ -4,7 +4,6 @@ import Animated from "react-native-reanimated";
 
 import { Channel } from "./Model";
 import Thumbnail from "./Thumbnail";
-import PanGesture from "./PanGesture";
 import Header from "./Header";
 
 const { interpolate } = Animated;
@@ -55,11 +54,6 @@ export default ({ channels, index, isActive }: ThumbnailsProps) => {
             </Animated.View>
           );
         })}
-        <PanGesture
-          ratio={width}
-          length={channels.length}
-          {...{ index, isActive }}
-        />
       </View>
     </View>
   );

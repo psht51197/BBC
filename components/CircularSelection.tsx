@@ -10,9 +10,9 @@ import PanGesture from "./PanGesture";
 
 const { interpolate } = Animated;
 const { width } = Dimensions.get("window");
-const height = width / 1.4;
+const height = width / 3;
 const D = width * 1.2;
-const innerR = D / 2;
+const innerR = D / 3;
 const styles = StyleSheet.create({
   container: {
     width,
@@ -41,13 +41,13 @@ export default ({ channels, index, isActive }: CircularSelectionProps) => {
     <View style={styles.container}>
       <LinearGradient
         style={{
-          ...StyleSheet.absoluteFillObject,
           borderRadius: R,
           width: R * 2,
           height: R * 2,
           left: -(R - width / 2)
         }}
         colors={["#353637", "#161819", "#161819"]}
+
       />
       <Animated.View
         style={{
@@ -81,6 +81,7 @@ export default ({ channels, index, isActive }: CircularSelectionProps) => {
           );
         })}
       </Animated.View>
+
       <PanGesture
         ratio={width / (channels.length / 2)}
         length={channels.length}

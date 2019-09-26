@@ -88,7 +88,7 @@ export default ({ index, ratio, length, isActive }: PanGestureProps) => {
     []
   );
   return (
-    <PanGestureHandler  {...gestureEvent}>
+    <PanGestureHandler   {...gestureEvent}>
       <Animated.View style={StyleSheet.absoluteFill} />
     </PanGestureHandler>
   );

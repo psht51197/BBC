@@ -5,12 +5,14 @@ import {
   Text,
   Dimensions,
   TouchableOpacity,
-  Animated
+  Animated,
+  Button
 } from "react-native";
 import { MaterialIcons as Icon } from "@expo/vector-icons";
 import { Channel } from "./Model";
 import { Video } from "expo-av";
 import { useState } from "react";
+import * as AppLink from "react-native-app-link";
 
 const { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
@@ -54,9 +56,7 @@ interface ThumbnailProps {
   channel: Channel;
 }
 
-export default ({
-  channel: {  type, title, subtitle }
-}: ThumbnailProps) => {
+export default ({ channel: { type, title, subtitle } }: ThumbnailProps) => {
   const volume = new Animated.Value(0);
   const volumeInterpol = volume.interpolate({
     inputRange: [-10, 0],
@@ -69,6 +69,15 @@ export default ({
     setIsPlay(true);
     await vid.playAsync();
   }
+  function openOnApp() {
+    const appName = "facebook";
+    const appStoreId = "id284882215";
+    const playStoreId = "com.facebook.katana";
+    AppLink.maybeOpenURL("fb://", { appName, appStoreId, playStoreId }).catch(
+      err => console.log(err)
+    );
+  }
+
   async function onPause() {
     setIsPlay(false);
     await vid.pauseAsync();
@@ -108,8 +117,10 @@ export default ({
               <Icon size={40} color={"#FFFFFF"} name="pause" />
             </TouchableOpacity>
           )}
-
         </View>
+      </View>
+      <View>
+        <Button title={"Open On App"} onPress={openOnApp} />
       </View>
     </>
   );
